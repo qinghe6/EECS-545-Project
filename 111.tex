@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{545 Project Proposal}
+\author{Qingyuan He}
+\date{October 2021}
+\usepackage{indentfirst}
+\begin{document}
+
+\maketitle
+
+\section{Introduction or Problem statement}
+Our project’s topic is federated learning; especially the goal is to implement an algorithm for personalized FL using Moreau envelopes as clients’ regularized loss functions. As one of the most popular technologies, federated learning can train machine learning models across multiple locations without moving the data. It is worth pursuing since data privacy is vital to every company in this field, and it can also lead to a new way to promote the corporation within various companies. Our project is not trivial because personalized federated learning trains personalized models collaboratively while accounting for data disparities across clients and reducing communication costs. In an era of multi-cloud computing, consideration must be given to both the data privacy and the personalized needs of enterprises.
+
+The contribution is to implement this scientific algorithm and apply it to another dataset. By doing this project, each group member can have a deep understanding of personalized federated learning algorithms and gain interest in exploring the relationship between data privacy and companies’ collaboration. Also, our project’s topic is novel since federated learning came into people’s eyes in 2016; however, more attention will be paid to this new technology in the future.
+
+\section{Method}
+
+We plan to implement the algorithm from the paper “Personalized Federated Learning with Moreau Envelopes”. First, let me introduce some backgrounds of federated learning and personalized federated learning. 
+
+Federated learning is an algorithmic solution that can train ML models by sending a copy of the model to where the data resides and training at the edge, thereby eliminating the need to move large amounts of data to the center space. The data is stored in its source device, which receives a copy of the global model from the central server. This copy of the global model is trained locally using data from each device. Update the model weights through local training, and then send the local copy back to the central server. After the server receives the updated model, it will continue to summarize the updates to improve the global model without revealing any private data. 
+
+Personalized federated learning refers to generating a personalized model to suit local data and improve accuracy. Each client has its own data, and it will cause statistical diversity that limits the performance of each client’s task. For instance, in the classification of handwritten digital images, some people like to draw circles when writing the number 5, but some like to draw lines. Thus, the global model should be differentiated into specialized models on different clients’ data. 
+ 
+Then, the point is that how we can apply a relevant algorithm to adapt to this situation. The algorithm will focus on the performance and convergence rate. We use the Moreau envelope as a regularized loss function because it has convexity-preserving and smoothness-enabled properties, and form a new bi-level optimization problem, so we can realize two functions: update the global model and optimize the personalized models with less complexity. By tuning parameters, we will show that the personalized FL has the higher quadratic speedup to converge and has better accuracy than vanilla FedAvg and meta-learning. 
+
+\end{document}
